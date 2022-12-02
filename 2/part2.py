@@ -15,12 +15,12 @@ def main():
         for game in guide.read().splitlines():
             r = tuple(rps[x] for x in game.split(" "))
 
-            if r[0] == r[1]:
-                score += 3 + r[1]
-            elif (r[0] % 3) + 1 == r[1]:
-                score += 6 + r[1]
+            if r[1] == 2:
+                score += 3 + r[0]
+            elif r[1] == 3:
+                score += 6 + (r[0] % 3) + 1
             else:
-                score += r[1]
+                score += (r[0] - 2) % 3 + 1
 
         print(score)
 
